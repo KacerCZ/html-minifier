@@ -4,7 +4,7 @@
     "type": "library",
     "keywords": ["PHP", "Blink", "HTML minify"],
     "homepage": "https://github.com/zaininnari/html-minifier",
-    "license": "The BSD 3-Clause License",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Google inc",
