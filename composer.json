@@ -3,7 +3,7 @@
     "description": "The Blink HTMLTokenizer ported to PHP.",
     "type": "library",
     "keywords": ["PHP", "Blink", "HTML minify"],
-    "homepage": "https://github.com/zaininnari/html-minifier",
+    "homepage": "https://github.com/raivisdejus/html-minifier",
     "license": "BSD-3-Clause",
     "authors": [
         {
