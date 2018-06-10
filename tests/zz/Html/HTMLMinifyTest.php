@@ -81,10 +81,17 @@ class HTMLMinifyTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($expect, $actual);
 
         $source = '<i>A' . chr(10) . chr(10) . 'Z</i>' . chr(10) . chr(10) . '<i>' . chr(10) . '</i>' . chr(10);
-        $expect = '<i>A' . chr(10) . 'Z</i>' . chr(10) . '<i>' . chr(10) . '</i>';
+        $expect = '<i>A' . chr(10) . 'Z</i><i></i>';
         $option = array('optimizationLevel' => HTMLMinify::OPTIMIZATION_ADVANCED);
         $actual = HTMLMinify::minify($source, $option);
         $this->assertEquals($expect, $actual);
+
+        $source = '<i>A' . chr(10) . chr(10) . 'Z</i>' . chr(10) . chr(10) . '<i>' . chr(10) . 'content </i>' . chr(10);
+        $expect = '<i>A' . chr(10) . 'Z</i><i>' . chr(10) . 'content </i>';
+        $option = array('optimizationLevel' => HTMLMinify::OPTIMIZATION_ADVANCED);
+        $actual = HTMLMinify::minify($source, $option);
+        $this->assertEquals($expect, $actual);
+
         $source = '<div> <img> <div> </div> <img> </div>';
         $expect = '<div><img /><div></div><img /></div>';
         $option = array('optimizationLevel' => HTMLMinify::OPTIMIZATION_ADVANCED);
@@ -97,8 +104,8 @@ class HTMLMinifyTest extends \PHPUnit_Framework_TestCase {
         $actual = HTMLMinify::minify($source, $option);
         $this->assertEquals($expect, $actual);
 
-        $source = '<div> <unknown> <div> </div> <unknown> </unknown> </div>';
-        $expect = '<div><unknown><div></div><unknown> </unknown></div>';
+        $source = '<div> <unknown> <div> </div> <unknown> content </unknown> </div>';
+        $expect = '<div><unknown><div></div><unknown> content </unknown></div>';
         $option = array('optimizationLevel' => HTMLMinify::OPTIMIZATION_ADVANCED);
         $actual = HTMLMinify::minify($source, $option);
         $this->assertEquals($expect, $actual);
@@ -284,6 +291,18 @@ cc
 ccc
 </p>';
         $actual = HTMLMinify::minify($source);
+        $this->assertEquals($expect, $actual);
+
+        // If inline whitespace is preserved
+        $source = '<p>Here is some <strong>bold</strong> text</p> ';
+        $expect = '<p>Here is some <strong>bold</strong> text</p>';
+        $actual = HTMLMinify::minify($source);
+        $this->assertEquals($expect, $actual);
+
+        $source = '<p>Here is some <strong>bold</strong> text</p> ';
+        $expect = '<p>Here is some <strong>bold</strong> text</p>';
+        $option = array('optimizationLevel' => HTMLMinify::OPTIMIZATION_ADVANCED);
+        $actual = HTMLMinify::minify($source, $option);
         $this->assertEquals($expect, $actual);
     }
 

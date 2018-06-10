@@ -510,10 +510,13 @@ class HTMLMinify {
                     $isTagBefore = $typeBefore === HTMLToken::StartTag || $typeBefore === HTMLToken::EndTag;
                     $isAfterTag = $afterType === HTMLToken::StartTag || $afterType === HTMLToken::EndTag;
                     $isAfterInline = $isAfterTag ? $this->isInlineTag($afterToken->getTagName()) : false;
+                    $isWhitespaceOnly = (mb_strlen(trim($characters)) === 0) && (mb_strlen($characters) > 0);
 
-                    if (($i === 0 || $isTagBefore) && $isAfterTag && (!$isBeforeInline || !$isAfterInline)) {
+                    if (($i === 0 || $isTagBefore) && $isAfterTag && (!$isBeforeInline && !$isAfterInline)) {
                         $characters = trim($characters);
                     } else if (($i === 0 || !$isBeforeInline) && !$isAfterInline) {
+                        $characters = trim($characters);
+                    } else if ($isWhitespaceOnly) {
                         $characters = trim($characters);
                     }
                 }
