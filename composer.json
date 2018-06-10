@@ -15,6 +15,11 @@
             "name": "zaininnari",
             "homepage": "https://github.com/zaininnari/",
             "role": "Developer"
+        },
+        {
+            "name": "raivisdejus",
+            "homepage": "https://github.com/raivisdejus/",
+            "role": "Developer"
         }
     ],
     "require": {
