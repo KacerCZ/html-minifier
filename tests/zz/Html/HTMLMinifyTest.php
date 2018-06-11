@@ -562,4 +562,11 @@ javascript
         $actual = HTMLMinify::minify($source);
         $this->assertEquals($expect, $actual);
     }
+
+    public function testPreserveSelfCloseOnUnknownTags() {
+        $source = '<unknown id=id data="data"/>';
+        $expect = '<unknown id=id data="data"/>';
+        $actual = HTMLMinify::minify($source);
+        $this->assertEquals($expect, $actual);
+    }
 }

@@ -319,10 +319,13 @@ class HTMLMinify {
                 break;
             case HTMLToken::StartTag:
                 $tagName = $token->getTagName();
-                $selfClosing = '';
+
+                $selfClosing = $token->hasSelfClosing() ? '/' : '';
                 if (isset($this->emptyTag[$tagName]) && $this->options['emptyElementAddSlash']) {
                     $selfClosing = '/';
                     $selfClosing = ($this->options['emptyElementAddWhitespaceBeforeSlash'] ? ' ' : '') . $selfClosing;
+                } else if (isset($this->emptyTag[$tagName])) {
+                    $selfClosing = '';
                 }
 
                 $attributes = $this->_buildAttributes($token);
