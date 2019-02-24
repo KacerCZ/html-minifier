@@ -1,9 +1,9 @@
 {
-    "name": "raivisdejus/html-minifier",
-    "description": "The Blink HTMLTokenizer ported to PHP.",
+    "name": "derUli/html-minifier",
+    "description": "The Blink HTMLTokenizer ported to PHP. Fork by derUli.",
     "type": "library",
     "keywords": ["PHP", "Blink", "HTML minify"],
-    "homepage": "https://github.com/raivisdejus/html-minifier",
+    "homepage": "https://github.com/derUli/html-minifier",
     "license": "BSD-3-Clause",
     "authors": [
         {
