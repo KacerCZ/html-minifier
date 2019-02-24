@@ -20,6 +20,11 @@
             "name": "raivisdejus",
             "homepage": "https://github.com/raivisdejus/",
             "role": "Developer"
+        },
+        {
+            "name": "derUli",
+            "homepage": "https://github.com/derUli/",
+            "role": "Developer"
         }
     ],
     "require": {
