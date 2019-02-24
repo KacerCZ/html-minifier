@@ -1,5 +1,5 @@
 {
-    "name": "derUli/html-minifier",
+    "name": "deruli/html-minifier",
     "description": "The Blink HTMLTokenizer ported to PHP. Fork by derUli.",
     "type": "library",
     "keywords": ["PHP", "Blink", "HTML minify"],
