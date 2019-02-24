@@ -1,5 +1,6 @@
 {
-    "name": "deruli/html-minifier",
+	"name": "deruli/html-minifier",
+	"version" : "0.5.1",
     "description": "The Blink HTMLTokenizer ported to PHP. Fork by derUli.",
     "type": "library",
     "keywords": ["PHP", "Blink", "HTML minify"],
@@ -33,6 +34,7 @@
     "require-dev": {
         "satooshi/php-coveralls": "v2.0.0"
     },
+
     "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
